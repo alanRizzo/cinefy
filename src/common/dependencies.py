@@ -14,15 +14,17 @@ def get_db_url_no_driver() -> str:
     db_username = settings.DB_USERNAME
     db_pass = settings.DB_PASSWORD
     db_host = settings.DB_HOST
-    db_port = settings.DB_PORT
+    db_port = f":{settings.DB_PORT}" if settings.DB_HOST else ""
     db_name = settings.DB_NAME
-    return f"{db_username}:{db_pass}@{db_host}:{db_port}/{db_name}"
+    return f"{db_username}:{db_pass}@{db_host}{db_port}/{db_name}"
 
 
 def get_db_sync_url() -> str:
     driver = "postgresql+psycopg2"
     db_connection = get_db_url_no_driver()
-    return f"{driver}://{db_connection}"
+    database_url = f"{driver}://{db_connection}"
+    logger.info(f"DB URL {database_url}")
+    return database_url
 
 
 engine = create_engine(get_db_sync_url(), pool_pre_ping=True)
