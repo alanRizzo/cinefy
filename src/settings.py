@@ -19,7 +19,7 @@ class Settings(BaseSettings):
 
     # Database
     DB_HOST: str
-    DB_PORT: int
+    DB_PORT: int | None = None
     DB_NAME: str
     DB_USERNAME: str
     DB_PASSWORD: str
