@@ -12,4 +12,4 @@ fi
 
 # Run the container locally
 echo "Starting container: $container_name"
-docker run --name "$container_name" -d --publish 8011:8011 cinefy:local
+docker run --name "$container_name" --network celltrakdev -d --publish 8011:8011 cinefy:local

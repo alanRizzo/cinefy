@@ -9,7 +9,7 @@ from src.movie.api import api as movie_api
 from src.settings import settings
 
 sentry_sdk.init(
-    dsn=settings.DSN,
+    dsn=settings.SENTRY_DSN,
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
 )
