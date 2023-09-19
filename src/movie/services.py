@@ -15,7 +15,6 @@ class MovieService:
     @staticmethod
     def create_movie(db: Session, movie_data: MovieCreate):
         """Create a new movie record in the database."""
-        __import__("pdb").set_trace()
         db.add(Movie(**movie_data.model_dump()))
 
     @staticmethod
