@@ -15,7 +15,8 @@ class MovieService:
     @staticmethod
     def create_movie(db: Session, movie_data: MovieCreate):
         """Create a new movie record in the database."""
-        db.add(Movie(**movie_data))
+        __import__("pdb").set_trace()
+        db.add(Movie(**movie_data.model_dump()))
 
     @staticmethod
     def get_movie(db: Session, movie_id: int):
@@ -31,7 +32,7 @@ class MovieService:
     def update_movie(db: Session, movie_id: int, updated_data: MovieCreate):
         """Update a movie record with new data."""
         if movie := db.query(Movie).filter_by(id=movie_id).first():
-            for key, value in updated_data.items():
+            for key, value in updated_data.dict().items():
                 setattr(movie, key, value)
 
     @staticmethod

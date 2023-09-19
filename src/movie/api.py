@@ -27,7 +27,7 @@ def get_all_movies(db: SessionDep):
 
 @api.put("/movie/{movie_id}", response_model=None)
 def update_movie(movie_id: int, updated_data: MovieCreate, db: SessionDep):
-    if not MovieService.get_movie(movie_id):
+    if not MovieService.get_movie(db, movie_id):
         raise MOVIE_NOT_FOUND
     MovieService.update_movie(db, movie_id, updated_data)
 

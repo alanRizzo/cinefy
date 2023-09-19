@@ -16,7 +16,7 @@ env_path=$(dirname $(dirname "$0"))/.env
   echo "DB_NAME=test_db"
   echo "DB_USERNAME=postgres"
   echo "DB_PASSWORD=cantguessthis"
-  echo "SENTRY_DSN=https://3e440eb7914699735b72303583e067b4@o4505902962180096.ingest.sentry.io/4505902964736000"
+  echo "SENTRY_DSN="
 } > $env_path
 
 echo "Local $env_path file created."
