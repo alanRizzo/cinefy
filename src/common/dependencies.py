@@ -14,7 +14,7 @@ def get_db_url_no_driver() -> str:
     db_username = settings.DB_USERNAME
     db_pass = settings.DB_PASSWORD
     db_host = settings.DB_HOST
-    db_port = f":{settings.DB_PORT}" if settings.DB_HOST else ""
+    db_port = f":{settings.DB_PORT}" if settings.DB_PORT else ""
     db_name = settings.DB_NAME
     return f"{db_username}:{db_pass}@{db_host}{db_port}/{db_name}"
 
